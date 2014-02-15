@@ -1,0 +1,1 @@
+<?phpclass YPContentModuleController extends YPController{	public $YPStylesheet = true;	}
