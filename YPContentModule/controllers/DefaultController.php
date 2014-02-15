@@ -1,6 +1,6 @@
 <?php
 
-class DefaultController extends YPContentModuleController
+class DefaultController extends YPController
 {
 	public function actionIndex()
 	{

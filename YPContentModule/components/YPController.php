@@ -1,1 +1,1 @@
-<?phpclass YPContentModuleController extends YPController{	public $YPStylesheet = true;	}
+<?phpclass YPController extends Controller{	public $YPStylesheet = true;	}
