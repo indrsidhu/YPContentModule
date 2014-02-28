@@ -3,14 +3,14 @@ class YPContentModule extends CWebModule
 {
 	public function init()
 	{
-		Yii::setPathOfAlias('plugin', dirname(__FILE__));
+		Yii::setPathOfAlias('YPContentModule', dirname(__FILE__));
 		// this method is called when the module is being created
 		// you may place code here to customize the module or the application
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'plugin.models.Content',
-			'plugin.components.*',
+			'YPContentModule.models.Content',
+			'YPContentModule.components.*',
 		));
 	}
 
@@ -18,43 +18,13 @@ class YPContentModule extends CWebModule
 	{
 		if(parent::beforeControllerAction($controller, $action))
 		{
-			$this->config($controller, $action);
+			YPModule::config($controller, $action);
 			// this method is called before any module controller action is performed
 			// you may place customized code here
 			return true;
 		}
 		else
 			return false;
-	}
-	
-	function config($controller, $action){
-	
-		$assets = dirname(__FILE__).'/assets';
-		$baseUrl = Yii::app()->assetManager->publish($assets);
-		Yii::app()->clientScript->registerCssFile($baseUrl.'/YPStyle.css');	
-	
-	
-		/**
-		 * Style and Layout Settings
-		 */	
-		 
-		// If you are using bootstrap or your own stylesheet set this false, 
-		$controller->YPStylesheet = true; // true|false
-		 
-		switch($action->id)
-		{
-			case 'admin':
-			$controller->layout = 'application.modules.admin.views.layouts.admin';
-			break;
-			case 'create':
-			$controller->layout = 'application.modules.admin.views.layouts.admin';
-			break;
-			case 'update':
-			$controller->layout = 'application.modules.admin.views.layouts.admin';
-			break;
-			case 'view':
-			break;
-		}	
 	}
 	
 	function getContentLinks($slugs=''){

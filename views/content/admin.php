@@ -1,34 +1,6 @@
-<?php
-/* @var $this ContentController */
-/* @var $model Content */
-
-$this->breadcrumbs=array(
-	'List content'=>array('admin'),
-	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List Content', 'url'=>'javascript:void(0)','active'=>true),
-	array('label'=>'Create new Content', 'url'=>array('create')),
-);
-/*
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$('#content-grid').yiiGridView('update', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
-*/
-?>
-
+<div class="container">
 <h1>Manage Contents</h1>
-
+<?php $this->widget('YPMenuWidget'); ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'content-grid',
 	'dataProvider'=>$model->search(),
@@ -66,3 +38,4 @@ $('.search-form form').submit(function(){
 		),
 	),
 )); ?>
+</div>

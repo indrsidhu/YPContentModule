@@ -30,7 +30,7 @@
 
 		<div class="form-group">
 			<?php echo $form->labelEx($model,'content_description'); ?>
-			<?php $this->widget('ext.yiiplugins.YPContentModule.components.tinymce.ETinyMce', array(
+			<?php $this->widget('YPContentModule.components.tinymce.ETinyMce', array(
 				'model'=>$model,
 				'attribute'=>'content_description',
 				'editorTemplate'=>'full',
