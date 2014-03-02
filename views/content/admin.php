@@ -35,6 +35,13 @@
 		*/
 		array(
 			'class'=>'CButtonColumn',
+			'buttons' => array(
+				'view' => array(
+				'label' => 'View',
+				'url' => 'Yii::app()->createUrl("content/content/view",array("slug"=>$data->slug))',
+				),
+			),			
+
 		),
 	),
 )); ?>

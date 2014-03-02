@@ -39,6 +39,7 @@ class YPContentModule extends CWebModule
 		$criteria->select = 't.id,t.slug,t.content_title';
 		$criteria->addInCondition('t.slug',$slugs);
 		$criteria->compare('t.lang',$lang);
+		$criteria->compare('t.is_active','1');
 	
 		$model		=	new Content();
 		$res		=	$model->findAll($criteria);
@@ -46,7 +47,7 @@ class YPContentModule extends CWebModule
 		foreach($res as $res){
 			$item = array();
 			$item['label']	=	$res->content_title;
-			$item['url']	=	Yii::app()->createUrl('content/content/view',array('id'=>$res->slug));
+			$item['url']	=	Yii::app()->createUrl('content/content/view',array('slug'=>$res->slug));
 			$menu[] = $item;
 		}
 		return $menu;
