@@ -41,7 +41,7 @@ class YPContentModule extends CWebModule
 		$criteria->compare('t.lang',$lang);
 		$criteria->compare('t.is_active','1');
 	
-		$model		=	new Content();
+		$model		=	new YPContent();
 		$res		=	$model->findAll($criteria);
 		$menu = array();
 		foreach($res as $res){
