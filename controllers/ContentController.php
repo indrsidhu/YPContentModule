@@ -48,7 +48,7 @@ class ContentController extends YPController
 	public function actionView($slug)
 	{
 		$this->render('view',array(
-			'model'=>Content::model()->findByAttributes(array('slug'=>$slug)),
+			'model'=>YPContent::model()->findByAttributes(array('slug'=>$slug)),
 		));
 	}
 
@@ -58,14 +58,14 @@ class ContentController extends YPController
 	 */
 	public function actionCreate()
 	{
-		$model=new Content;
+		$model=new YPContent;
 		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Content']))
+		if(isset($_POST['YPContent']))
 		{
-			$model->attributes=$_POST['Content'];
+			$model->attributes=$_POST['YPContent'];
 			$model->created = new CDbExpression('NOW()');
 			$model->updated = new CDbExpression('NOW()');
 
@@ -95,9 +95,9 @@ class ContentController extends YPController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Content']))
+		if(isset($_POST['YPContent']))
 		{
-			$model->attributes=$_POST['Content'];
+			$model->attributes=$_POST['YPContent'];
 			$model->created = new CDbExpression('NOW()');
 			$model->updated = new CDbExpression('NOW()');
 			
@@ -133,7 +133,7 @@ class ContentController extends YPController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Content');
+		$dataProvider=new CActiveDataProvider('YPContent');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -144,10 +144,10 @@ class ContentController extends YPController
 	 */
 	public function actionAdmin()
 	{
-		$model=new Content('search');
+		$model=new YPContent('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Content']))
-			$model->attributes=$_GET['Content'];
+		if(isset($_GET['YPContent']))
+			$model->attributes=$_GET['YPContent'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -164,9 +164,9 @@ class ContentController extends YPController
 	public function loadModel($id)
 	{
 		if(is_numeric($id)){
-		$model=Content::model()->findByPk($id);
+		$model=YPContent::model()->findByPk($id);
 		} else{
-		$model = Content::model()->findByAttributes(array('slug'=>$id));
+		$model = YPContent::model()->findByAttributes(array('slug'=>$id));
 		}
 		
 		if($model===null)

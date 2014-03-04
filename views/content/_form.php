@@ -30,19 +30,7 @@
 
 		<div class="form-group">
 			<?php echo $form->labelEx($model,'content_description'); ?>
-			<?php $this->widget('YPContentModule.components.tinymce.ETinyMce', array(
-				'model'=>$model,
-				'attribute'=>'content_description',
-				'editorTemplate'=>'full',
-				'htmlOptions'=>array('rows'=>6, 'cols'=>50, 'class'=>'tinymce'),
-				'options' => array(
-                        'skin' => 'default',
-                        'theme_advanced_buttons1' => 'preview,bold,italic,underline,fontselect,fontsizeselect,link,justifyfull,justifyleft,justifycenter,justifyright,pasteword,pastetext,table,image,|,bullist,numlist,|,undo,redo,|,code,fullscreen',
-                        'theme_advanced_buttons2' => '',
-                        'theme_advanced_buttons3' => '',
-                    ),
-			)); ?>
-			<?php //echo $form->textArea($model,'content_description',array('rows'=>6, 'cols'=>50,'class'=>'form-control')); ?>
+			<?php echo $form->textArea($model,'content_description',array('rows'=>6, 'cols'=>50,'class'=>'form-control')); ?>
 			<?php echo $form->error($model,'content_description'); ?>
 		</div>
 
@@ -83,6 +71,8 @@
 
 <?php
 	$assets = dirname(__FILE__).'/../../assets';
+	
+	
 	$baseUrl = Yii::app()->assetManager->publish($assets);
 	if(is_dir($assets)){
 		Yii::app()->clientScript->registerCoreScript('jquery');
@@ -91,7 +81,7 @@
 		throw new Exception('Expancer - Error: Couldn\'t publish assets.');
 	}
 
-	Yii::app()->clientScript->registerScript('YPContentMVC_form','
-	 $("#Content_slug").slugify("#Content_content_title");	
+	Yii::app()->clientScript->registerScript('YPContentModule_form','
+	 $("#YPContent_slug").slugify("#YPContent_content_title");	
 	',CClientScript::POS_READY);
 ?>	

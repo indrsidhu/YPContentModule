@@ -9,7 +9,7 @@ class YPContentModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'YPContentModule.models.Content',
+			'YPContentModule.models.*',
 			'YPContentModule.components.*',
 		));
 	}
