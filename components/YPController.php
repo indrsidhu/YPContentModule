@@ -1,1 +1,1 @@
-<?phpclass YPController extends Controller{}
+<?php/** * YPContentModule * * @author YiiPlugins.com * @link http://yiiplugins.com/plugin/content-module * @license http://www.opensource.org/licenses/bsd-license.php */class YPController extends Controller{}
